@@ -19,20 +19,21 @@ Handlers are meant to be module python files that can easily be extended. Each h
   * volume_down: Turn down the volume by 4
 
 ## Usage
-Run the following to create an `exe` that will run in the background (alternatively, use `builder.bat` if you are on Windows).  
-```
-pyinstaller --onefile \
-  --noconsole \
-  --add-data "handlers/resources/doorbell.wav;handlers/resources" \
-  --hidden-import handlers.doorbell \
-  esp32_base_station.py
-```
-Create a Basic Task in Task Scheduler with the following settings:
+1. Run `builder.bat` on Windows to create an `.exe` in the `dist` directory.  
+2. Create a Basic Task in Task Scheduler with the following settings:
 ```
 Trigger: When the computer starts
 Action: Start a program
 Program/script: dist\esp32_base_station.exe
 ```
 Where `Program/script` points to the `exe` in the `dist` folder.  
-To run it in the background without restarting, simply run the `exe` file in dist once.  
-The listener can be turned off or restarted by ending the process using the Task Manager.
+* To run it in the background without restarting, simply run the `exe` file in dist once.  
+* The listener can be turned off or restarted by ending the process using the Task Manager.
+
+## Environment Variables
+To abstract sensitive information, there is an `.env` file inside the `handlers` directory; here is the structure of that file:  
+```
+SPOTIPY_CLIENT_ID=
+SPOTIPY_CLIENT_SECRET=
+SPOTIPY_REDIRECT_URI=
+```
