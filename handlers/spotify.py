@@ -17,7 +17,7 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
 def controller_main(arg):
     match arg:
         case "ROTARY":
-            return
+            loop_track()
         case "SKIP":
             next_track()
         case "PLAY":
@@ -42,13 +42,16 @@ def next_track():
 def previous_track():
     sp.previous_track()
 
-def volume_up(step=4):
+def loop_track():
+    sp.repeat('track')
+
+def volume_up(step=5):
     volume = _get_current_volume()
     if volume is not None:
         new_volume = min(100, volume + step)
         sp.volume(new_volume)
 
-def volume_down(step=4):
+def volume_down(step=5):
     volume = _get_current_volume()
     if volume is not None:
         new_volume = max(0, volume - step)
