@@ -10,6 +10,13 @@ The listener determines if the message has a colon or not; if it doesn't, then i
 Handlers are meant to be module python files that can easily be extended. Each handler is a python script, and a handler may contain as many functions as required:
 * [doorbell.py](https://github.com/KaiserMighty/ESP32-Doorbell)
   * ring_bell: Play a ding audio cue
+* [spotify.py](https://github.com/KaiserMighty/ESP32-SpotifyController)
+  * controller_main: Input handler that calls the other functions
+  * play_pause: Play or pause the current track
+  * next_track: Skip the current track
+  * previous_track: Play the previous track
+  * volume_up: Turn up the volume by 4
+  * volume_down: Turn down the volume by 4
 
 ## Usage
 Run the following to create an `exe` that will run in the background (alternatively, use `builder.bat` if you are on Windows).  

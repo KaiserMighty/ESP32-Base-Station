@@ -6,6 +6,7 @@ BUFFER_SIZE = 1024
 
 COMMAND_MAP = {
     "DOORBELL_KNOCK": ("handlers.doorbell", "ring_bell"),
+    "SPOTIFY_CONTROLLER": ("handlers.spotify", "controller_main"),
 }
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
