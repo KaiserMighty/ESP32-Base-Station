@@ -15,6 +15,7 @@ Handlers are meant to be module python files that can easily be extended. Each h
   * play_pause: Play or pause the current track
   * next_track: Skip the current track
   * previous_track: Play the previous track
+  * loop_track: Set the loop mode to track
   * volume_up: Turn up the volume by 4
   * volume_down: Turn down the volume by 4
 
@@ -36,4 +37,5 @@ To abstract sensitive information, there is an `.env` file inside the `handlers`
 SPOTIPY_CLIENT_ID=
 SPOTIPY_CLIENT_SECRET=
 SPOTIPY_REDIRECT_URI=
+SPOTIFY_DEVICE_ID=
 ```

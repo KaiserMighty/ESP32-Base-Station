@@ -14,6 +14,8 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
     cache_path=".spotifycache"
 ))
 
+DEVICE_ID = os.getenv("SPOTIFY_DEVICE_ID")
+
 def controller_main(arg):
     match arg:
         case "ROTARY":
@@ -32,9 +34,9 @@ def controller_main(arg):
 def play_pause():
     playback = sp.current_playback()
     if playback and playback['is_playing']:
-        sp.pause_playback()
+        sp.pause_playback(DEVICE_ID)
     else:
-        sp.start_playback()
+        sp.start_playback(DEVICE_ID)
 
 def next_track():
     sp.next_track()
